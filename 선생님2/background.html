@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .box{
+            width: 500px;
+            padding: 20px;            
+            text-align: center;
+            font-size: 5vw;
+            font-weight: bold;
+            border: 10px dotted red;
+            margin: 50px auto;
+            background-color: yellow;
+            box-sizing: border-box;
+
+            /* background-clip: border-box; */
+            /* background-clip: padding-box; */
+            /* background-clip: content-box; */
+            background-clip:text;
+            -webkit-background-clip: text;
+            color: white;
+            -webkit-text-fill-color:transparent;
+            -webkit-text-stroke: 1px black;
+        }
+
+        .box2{
+            width: 500px;
+            padding: 20px;            
+            text-align: center;
+            font-size: 5vw;
+            font-weight: bold;
+            border: 10px dotted red;
+            margin: 50px auto;
+            /* background-image: linear-gradient(red, orange, green, yellow); */
+            background-image: url("img/main1.jpg");
+            box-sizing: border-box;           
+            background-clip:content-box;
+            -webkit-background-clip: text;
+            color: white;
+            -webkit-text-fill-color:transparent;
+            -webkit-text-stroke: 1px black;
+            font-weight: bold;
+            text-transform: uppercase;
+            /* text-shadow: 1px 1px 25px red; */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">background</div>
+
+    <div class="box2">background</div>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>푸른마을</title>
+    <style type="text/css">
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        a{text-decoration: none; color: inherit;}
+        li{list-style: none;}
+
+        body{
+            overflow-x: hidden;
+        }
+        #wrap{
+            width: 100%;
+            height: 970px;
+            background-color: aqua;  
+            display: flex;  
+            flex-direction: row;        
+            flex-wrap: wrap;
+
+        }
+        .left{
+            width: 200px;
+            height: 850px;
+            background-color: brown;
+        }
+
+        .logo{
+            width: 200px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;            
+        }
+
+        .nav{}
+        .main{
+            width: 150px;
+            margin: 0 auto;
+
+        }
+        .main > li{
+            position: relative;
+        }
+        .main > li >a{
+            display: block;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background-color: aliceblue;
+            font-weight: bold;
+        }
+        .main > li:hover >a{
+            background-color: rgba(0,0,0,.5);
+        }
+
+        .sub{
+            position: absolute;
+            left: 150px;
+            top: 0;
+            width: calc(100vw  - 150px);
+            background-color: antiquewhite;
+            
+        }
+        .sub li{ display: inline-block; width: 150px;}
+        .sub li a{
+            display: block;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+        .sub li a:hover{
+            background-color: rgba(0,0,0,.5);
+        }
+
+
+
+
+        .right{
+            width: calc(100% - 200px);
+            height: 850px;
+            background-color: burlywood;
+        }
+
+        .footer{
+            width: 100%;
+            height: 120px;
+            background-color: coral;
+        }
+
+
+
+
+
+
+    </style>
+    
+
+</head>
+<body>
+    <div id="wrap">
+        <aside class="left">
+            <h1 class="logo"><a href="#"><img src="img/logo.png" alt="logo"></a></h1>
+
+            <nav class="nav">
+            
+                <ul class="main">
+                    <li>
+                        <a href="#">OnSale</a>
+                        <ul class="sub">
+                            <li><a href="#">할인행사</a></li>
+                            <li><a href="#">덤증정</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#">기획전</a>
+                        <ul class="sub">
+                            <li><a href="#">봄 먹거리</a></li>
+                            <li><a href="#">여름 먹거리</a></li>
+                            <li><a href="#">가을 먹거리</a></li>
+                            <li><a href="#">겨울 먹거리</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">푸른마을 레시피</a>
+                        <ul class="sub">
+                            <li><a href="#">메인요리</a></li>
+                            <li><a href="#">밑반찬</a></li>
+                            <li><a href="#">간식</a></li>
+                            <li><a href="#">브런치</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">매장안내</a>
+                        <ul class="sub">
+                            <li><a href="#">신규매장</a></li>
+                            <li><a href="#">추천매장</a></li>
+                            <li><a href="#">공지사힝</a></li>
+                        </ul>
+                    </li>
+                </ul><!-- main -->
+
+                
+
+            </nav><!-- nav -->
+
+        </aside><!-- left -->
+
+        <section class="right">
+
+        </section><!-- right -->
+        <footer class="footer">
+
+        </footer><!-- footer -->
+
+    </div><!-- wrap -->
+</body>
+</html>
