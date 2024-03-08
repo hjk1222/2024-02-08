@@ -1,0 +1,387 @@
+@charset "utf-8";
+*{margin: 0; padding: 0; box-sizing: border-box;}
+a{text-decoration: none; color: inherit;}
+ul,li{list-style: none;}
+
+body{
+    
+    background-color: #ffffff;
+    color: 333333;
+    overflow-x: hidden;
+}
+
+#wrap{}
+
+.up{
+    width: 100%;
+    height: 850px; /* 400 + 200 + 250 /푸터는 안더함 */
+    background-color: #dfdfdf;
+    display: flex;
+}
+.left{
+    width: 200px;
+    height: 850px;
+    background-color: #e7d5d5;
+}
+.logo{
+    /* 지문 '너비'만 꼭 써주기, 높이는 자유... */
+    width: 200px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo a{ }
+.logo a img{ /* 이미지 크기 줄이려면 여기에 */ }
+
+.nav{
+    /* 전체w 200 */
+    width: 180px;
+    margin: 50px auto;
+}
+.main{}
+.main > li{
+    position: relative;
+}
+.main > li > a{
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    background-color: #70b363;
+
+}
+.main > li:hover > a{
+    background-color: #a2ce50;
+}
+
+.sub{
+    position: absolute;
+    /* 서브메뉴 전체가 포지션 뜯겨야 함. 기준은 [main>li]마다. */
+    width: 1920px;
+    left: 180px;
+    top: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10; /* 슬라이드이미지랑 겹쳐서 맨위로 올려주기 */
+    display: none;
+}
+.sub li{
+    float: left;
+    padding: 0 20px;
+}
+.sub li a{
+    display: block;
+    width: 180px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+}
+.sub li a:hover{
+    background-color: rgba(255,255,255,.2);
+}
+.spotmenu{
+    text-align: center;
+}
+.spotmenu a{
+    display: inline-block;
+    /* padding: 0 2px; */
+    /* transition: all 0.3s; */
+}
+.spotmenu a:first-child{
+    /* border-right: 1px solid black; */
+}
+.spotmenu a:nth-child(1)::after{
+    content: "|";
+    display: inline-block;
+    padding-left: 5px;
+}
+.spotmenu a:hover{
+    text-decoration: underline;
+}
+
+
+
+.right{
+    width: calc(100% - 200px);
+    height: 850px;
+    /* background-color: #a58f8f; */
+}
+/* 슬라이드이미지 영역 */
+.img_slide{
+    /* 이미지가 겹쳐서 페이드 될 프레임 */
+    /* w : 부모상속 */
+    height: 400px; /* 지문 */
+    background-color: #e0e0af;
+}
+.fade{
+    width: 100%;
+    height: 400px;
+    position: relative;
+}
+.fade li{
+    width: 100%;
+    height: 400px;
+    position: absolute;
+    top: 0; left: 0;
+}
+.fade li a{
+    display: block;
+    height: 400px;
+    
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+}
+.fade li:nth-child(1){background-image: url(../img/main1.jpg);}
+.fade li:nth-child(2){background-image: url(../img/main2.jpg);}
+.fade li:nth-child(3){background-image: url(../img/main3.jpg);}
+
+/* 배너영역 */
+.banner{
+    /* w상속 */
+    height: 200px;
+    /* background-color: #a2ce50; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner_inner{
+    width: 98%;
+    height: 90%;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+.b_1{width: 180px;}
+.b_1 img{width: 80%;}
+.bab_txt{
+    flex: 8;
+}
+.ban_txt h2{margin-bottom: 10px;}
+.ban_txt p{line-height: 1.7em;}
+
+
+
+/* 콘텐츠영역 */
+
+/* [탭메뉴 만들기] */
+/* 제목(h2)끼리 ul끼리 앱솔시켜야 됨. */
+/* 부모는 contents. 가 릴리티브. */
+.contents{
+    /* w상속 */
+    height: 250px;
+    background-color: rgb(135, 177, 163);
+    position: relative; /* 컨텐츠박스가 공지사항+갤러리 제목태그의 기준. */
+}
+.contents h2{
+    /* 공지사항,갤러리 제목태그 부분. 제목끼리만 포지션앱솔로 겹쳐주기 */
+    font-size: 14px;
+    width: 150px;
+    height: 35px; /* 활성화시키면 40으로 길어질거 참고.. */
+    /* [전체h:250px]-[제목탭h:35px]-[탑:10px] */
+    line-height: 35px;
+    text-align: center;
+    background-color: rgb(187, 212, 187);
+    border-radius: 10px 10px 0 0;
+    position: absolute;
+    top: 10px; left: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.contents h2.on{
+    /* 컨텐츠박스 h2태그 */
+    /* 탭 활성화 되면 */
+    background-color: #4a915a;
+    color: white;
+    top: 5px; height: 40px;
+}
+.contents ul{
+    /* 컨텐츠박스의 전체 아이템들 부분*/
+    
+    /* w상속 */
+    width: 98%;
+    height: 195px;
+    /* [전체h:250px]-[제목h:35px]-[탑:10px]= 205px */
+    height: 195px;
+    background-color: #f1f1f1;
+    
+    /* 여기 */
+    position: absolute; 
+    top: 45px;
+    left: 10px;
+}
+
+.notice{}
+.notice h2{
+    /* position: absolute; */
+}
+.notice ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; /* 컬럼꼬지: 위아래 간격 떨어트리기 */
+    padding: 0 40px;
+}
+.notice ul li{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+.notice ul li a{
+    flex: 8;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.notice ul li span{
+    flex: 2;
+    text-align: center;
+}
+
+.gallery{}
+.gallery h2{
+    left: 160px;
+}
+.gallery ul{
+    display: none;
+    /* display: flex; */
+    justify-content: space-around;
+    align-items: center;
+}
+.contents ul.act{
+    display: flex;
+}
+
+.gallery ul li{
+    flex: 1;
+    text-align: center;
+    max-width: 180px;
+}
+.gallery ul li a{
+    display: block;
+}
+.gallery ul li a img{
+    width: 90%;
+}
+
+/* 링크 아이콘 영역 */
+.link{
+    /* 너비높이 임의지정 */
+    width: 100px;
+    height: 300px;
+    background-color: #70b363;
+
+    position: absolute; right: 0; top: 0;
+    z-index: 5; /* 서브메뉴보다는 아래 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.link a{
+    display: block;
+    width: 80px;
+    height: 80px;
+}
+.link a img{
+    width: 100%;
+}
+.link a:hover{
+    filter: hue-rotate(180deg);
+}
+
+
+/* 푸터영역 */
+.footer{
+    width: 100%;
+    height: 120px;
+    background-color: #4d4d4d;
+    display: flex;
+    color: rgb(180, 180, 180);
+}
+.f_logo{
+    width: 200px;
+    height: 120px;
+    line-height: 120px;
+    text-align: center;
+    /* background-color: #4a915a; */
+}
+.f_logo img{
+    filter: grayscale();
+}
+.f_right{
+    width: calc(100% - 200px);
+    height: 120px;
+    text-align: left;
+    /* padding: 20px; */
+}
+.f_up{
+    padding: 20px;
+    /* background-color: #a2ce50; */
+    border-bottom: 1px dotted gray;
+}
+.f_up a{
+    /* padding: 0 10px; */
+    display: inline-block;
+    padding-right: 15px;
+}
+.f_up a::after{
+    content: "|";
+    display: inline-block;
+    padding-left: 16px;
+}
+.f_up a:last-child::after{display: none;}
+.f_up a:hover{text-decoration: underline;}
+
+.f_down{
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+/* 레이어팝업 영역 */
+.pop{
+    width: 400px;
+    height: 300px;
+    background-color: #e0e0af;
+    padding: 40px;
+    border: 10px solid gray;
+    z-index: 100;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.pop h3{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #4a915a;
+    color: white;
+}
+.pop p{
+    padding: 10px 0;
+    text-align: justify;
+    line-height: 1.2;
+}
+
+.pop button{
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    right: 50px;
+    border: none;
+}
+
+
+
